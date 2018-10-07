@@ -48,5 +48,21 @@ function salaryCal() {
     return sum;
 }
 
-sum = salaryCal();
-console.log("tong tien phai tra", sum);
+
+
+//method use reduce
+// sum = salaryCal();
+// console.log("tong tien phai tra", sum);
+
+//method use generator
+function* manSalarycal(){
+    for (let index = 0; index < nhanvien.length; index++) {
+        yield nhanvien[index].luong + nhanvien[index].thuong + nhanvien[index].trocap;
+    }
+}
+total = 0;
+for (let salary of manSalarycal()) {
+    console.log(salary);
+    total += salary;
+}
+console.log("tong tien phai tra", total);
